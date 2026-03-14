@@ -1,21 +1,23 @@
 class Receita:
-
-    def __init__(self, nome, ingredientes, modo_preparo):
+    def __init__(self, nome, ingredientes, modo_preparo, tempo="--", porcoes="--"):
         self.nome = nome
         self.ingredientes = ingredientes
         self.modo_preparo = modo_preparo
-
+        self.tempo = tempo
+        self.porcoes = porcoes
 
     def texto_receita(self):
+        texto = f"Receita: {self.nome}\n"
+        texto += f"⏱ Tempo: {self.tempo} | 🍴 Porções: {self.porcoes}\n\n"
+        
+        texto += "INGREDIENTES\n"
+        for ing in self.ingredientes:
+            if ing.strip():
+                texto += f"• {ing}\n"
 
-        texto = f"Receita: {self.nome}\n\n"
-
-        texto += "Ingredientes:\n"
-        for ingrediente in self.ingredientes:
-            texto += f"- {ingrediente}\n"
-
-        texto += "\nModo de preparo:\n"
+        texto += "\nMODO DE PREPARO\n"
         for i, passo in enumerate(self.modo_preparo):
-            texto += f"{i+1} - {passo}\n"
+            if passo.strip():
+                texto += f"{i+1}. {passo}\n"
 
         return texto

@@ -1,4 +1,5 @@
-from interface import InterfaceReceitas 
+from interface import InterfaceReceitas
 
-app = InterfaceReceitas()
-app.executar()
+if __name__ == "__main__":
+    app = InterfaceReceitas()
+    app.executar()
