@@ -1,3 +1,5 @@
+import copy
+
 class Receita:
     def __init__(
         self,
@@ -16,6 +18,12 @@ class Receita:
         self.porcoes = porcoes
         self.foto_path = foto_path
         self.checklist: dict[str, bool] = checklist or {}
+
+    def clone(self, novo_nome: str | None = None) -> "Receita":
+        copia = copy.deepcopy(self)
+        copia.nome = novo_nome or f"{self.nome} (cópia)"
+        copia.checklist = {}
+        return copia
 
     def to_dict(self) -> dict:
         return {

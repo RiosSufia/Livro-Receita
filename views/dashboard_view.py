@@ -135,6 +135,16 @@ class DashboardView(ctk.CTkFrame):
         ).pack(side="left", expand=True, fill="x", padx=(0, 4))
         ctk.CTkButton(
             btn_row,
+            text="Duplicar",
+            fg_color="transparent",
+            border_width=1,
+            border_color="#3D2B1F",
+            height=34,
+            corner_radius=8,
+            command=lambda i=indice: self.controller.duplicar_receita(i),
+        ).pack(side="left", expand=True, fill="x", padx=(0, 4))
+        ctk.CTkButton(
+            btn_row,
             text="🗑",
             fg_color="transparent",
             text_color="#E74C3C",

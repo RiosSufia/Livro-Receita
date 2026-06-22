@@ -112,6 +112,12 @@ class AppController:
 
         self.criar_tela_principal()
 
+    def duplicar_receita(self, indice: int):
+        original = self._livro.obter_receita(indice)
+        copia = original.clone()
+        self._livro.adicionar(copia)
+        self.criar_tela_principal()
+
     def remover_receita(self, indice: int):
         receita = self._livro.obter_receita(indice)
         confirmar = messagebox.askyesno(
